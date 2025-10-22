@@ -101,7 +101,91 @@
       </div>
       <img src="band.jpg" alt="Revolant band photo">
     </section>
-    <!-- rest of your content stays exactly the same -->
-  </main>
+<section id="about" class="section grid two">
+  <div class="card">
+    <h2>About / Bio</h2>
+    <p>Revolant is a DMV-based emo/rock cover band reviving all your favorite pop-punk anthems to hard rock moshers on the local stage. Bringing the energy with loud guitars and even louder choruses, they deliver the kind of setlist that punches nostalgia in the teeth and keeps the pit alive.</p>
+  </div>
+  <div class="card">
+    <h2>Booking</h2>
+    <p><strong>Location:</strong> Washington, DC<br/>
+    <strong>Email:</strong> <a href="mailto:RevolantBand@gmail.com">RevolantBand@gmail.com</a><br/>
+    <strong>Instagram:</strong> <a href="https://instagram.com/RevolantBand" target="_blank">@RevolantBand</a></p>
+  </div>
+</section>
+
+<section id="media" class="section">
+  <div class="card">
+    <h2>Video / Media</h2>
+    <div class="grid two">
+      <div>
+        <p><strong>Highlight Reel:</strong> <a href="https://www.youtube.com/watch?v=FJRgIzjWKw8" target="_blank">https://www.youtube.com/watch?v=FJRgIzjWKw8</a></p>
+        <div style="position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;border:1px solid #222">
+          <iframe src="https://www.youtube.com/embed/FJRgIzjWKw8" title="Revolant Highlight Reel" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe>
+        </div>
+      </div>
+      <div class="grid three">
+        <img src="gallery1.jpg" alt="Revolant live photo 1" onclick="openLightbox(this.src)">
+        <img src="gallery2.jpg" alt="Revolant live photo 2" onclick="openLightbox(this.src)">
+        <img src="gallery3.jpg" alt="Revolant live photo 3" onclick="openLightbox(this.src)">
+        <img src="gallery4.jpg" alt="Revolant live photo 4" onclick="openLightbox(this.src)">
+        <img src="gallery5.jpg" alt="Revolant live photo 5" onclick="openLightbox(this.src)">
+        <img src="gallery6.jpg" alt="Revolant live photo 6" onclick="openLightbox(this.src)">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fans" class="section">
+  <div class="card">
+    <h2>For Fans Of</h2>
+    <p>Fall Out Boy · My Chemical Romance · A Day to Remember · Mayday Parade · Paramore</p>
+  </div>
+</section>
+<section id="setlist" class="section">
+  <div class="card">
+    <h2>Setlist / Artists Covered</h2>
+    <p>Sample picks for a 60–90 min set (rotating):</p>
+    <ul>
+      <li>Fall Out Boy — “Sugar, We’re Goin Down”</li>
+      <li>My Chemical Romance — “I’m Not Okay (I Promise)”</li>
+      <li>Paramore — “Misery Business”</li>
+      <li>A Day to Remember — “All Signs Point to Lauderdale”</li>
+      <li>Mayday Parade — “Jamie All Over”</li>
+      <li>Pierce the Veil — “King for a Day”</li>
+      <li>Yellowcard — “Ocean Avenue”</li>
+    </ul>
+    <p style="color:#9a9a9a">Want a specific vibe or theme? We tailor the setlist to your crowd.</p>
+  </div>
+</section>
+
+<section id="contact" class="section">
+  <div class="card">
+    <h2>Contact</h2>
+    <p><strong>Booking & Press:</strong> <a href="mailto:RevolantBand@gmail.com">RevolantBand@gmail.com</a></p>
+  </div>
+</section>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="Gallery image">
+</div>
+
+<footer class="container">
+  <p>© Revolant — Washington, DC · Emo Rock</p>
+</footer>
+</main>
+
+<script>
+  function openLightbox(src){
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lightbox-img');
+    img.src = src;
+    lb.classList.add('show');
+  }
+  function closeLightbox(){
+    document.getElementById('lightbox').classList.remove('show');
+  }
+</script>
 </body>
 </html>
+
