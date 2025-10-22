@@ -55,12 +55,46 @@
     .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
     .lightbox img{max-width:90vw;max-height:85vh;border:none;border-radius:12px}
     .lightbox.show{display:flex}
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr;gap:18px}
-      .hero h1{font-size:48px}
-      .grid.two{grid-template-columns:1fr}
-      .grid.three{grid-template-columns:1fr}
-    }
+@media (max-width:900px){
+  body{font-size:15px;line-height:1.7}
+  .container{padding:20px 16px}
+  .hero{
+    grid-template-columns:1fr;
+    gap:24px;
+    text-align:center;
+  }
+  .hero img{
+    margin:auto;
+    width:90%;
+  }
+  .hero h1{
+    font-size:42px;
+    line-height:1.2;
+  }
+  .grid.two,.grid.three{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+  iframe{
+    width:100%;
+    height:auto;
+    aspect-ratio:16/9;
+  }
+  nav{
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  nav a{
+    padding:4px 8px;
+    font-size:14px;
+  }
+  .btn{
+    display:block;
+    width:100%;
+    margin:6px 0;
+    text-align:center;
+  }
+}
   </style>
 </head>
 <body>
