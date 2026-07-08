@@ -4,188 +4,526 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Revolant — EPK</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Staatliches&family=Inter:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#0b0b0b; --accent:#ff3366; --text:#f2f2f2; --muted:#bdbdbd; --card:#151515;
+      --bg:#080807;
+      --ink:#f4f1ec;
+      --muted:#aaa39b;
+      --card:#131211;
+      --card2:#1b1716;
+      --line:#2c2927;
+      --red:#c44b59;
+      --gold:#e0aa6b;
     }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:
-      radial-gradient(100% 140% at 50% -20%, #1a1a1a, var(--bg)) fixed;
-      color:var(--text);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.6}
-    body:before{
-      content:"";position:fixed;inset:0;pointer-events:none;
-      background-image:
-        radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
-        radial-gradient(rgba(255,255,255,.03) 1px, transparent 1px);
-      background-size:3px 3px,4px 4px;
-      background-position:0 0,1px 2px;
-      mix-blend-mode:overlay;opacity:.5
-    }
-    a{color:var(--text);text-decoration:none;border-bottom:1px solid var(--accent)}
-    header{
-      position:sticky;top:0;z-index:20;
-      background:linear-gradient(180deg,rgba(0,0,0,.85),rgba(0,0,0,.2));
-      backdrop-filter:saturate(1.2) blur(6px);
-      padding:10px 20px;border-bottom:1px solid #222
-    }
-    nav{max-width:1100px;margin:0 auto;display:flex;gap:18px;align-items:center}
-    nav a{font-weight:600;letter-spacing:.5px}
-    .container{max-width:1100px;margin:0 auto;padding:32px 20px}
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;padding-top:24px}
-    .hero h1{font-family:Staatliches,Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;font-size:64px;letter-spacing:2px;margin:6px 0;text-shadow:0 2px 0 #000}
-    .tag{color:var(--muted);text-transform:uppercase;letter-spacing:2px}
-    .pill{display:inline-block;background:transparent;border:1px solid var(--accent);padding:6px 10px;border-radius:999px;font-size:12px;letter-spacing:.8px}
-    .card{background:linear-gradient(180deg,var(--card),#101010);border:1px solid #222;border-radius:16px;padding:20px;box-shadow:0 10px 30px rgba(0,0,0,.35)}
-    .grid{display:grid;gap:16px}
-    .grid.two{grid-template-columns:1fr 1fr}
-    .grid.three{grid-template-columns:repeat(3,1fr)}
-    img{max-width:100%;border-radius:12px;border:1px solid #222;display:block}
-    h2{font-family:Staatliches,Impact,Haettenschweiler,'Arial Narrow Bold',sans-serif;font-size:28px;letter-spacing:1px;margin:0 0 8px}
-    .section{margin-top:48px;position:relative}
-    .section:before{content:"";position:absolute;top:-24px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,#333,transparent)}
-    .btn{display:inline-flex;align-items:center;justify-content:center;background:var(--accent);color:#000;font-weight:800;padding:12px 16px;border-radius:10px;border:none;box-shadow:0 6px 18px rgba(255,51,102,.35);text-align:center;min-height:44px}
-    .btn-group{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:12px}
-    footer{color:#9a9a9a;border-top:1px solid #222;margin-top:40px;padding:24px 0}
-    .lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);display:none;align-items:center;justify-content:center;padding:20px;z-index:50}
-    .lightbox img{max-width:90vw;max-height:85vh;border:none;border-radius:12px}
-    .lightbox.show{display:flex}
 
-    /* Mobile styles */
-    @media (max-width:900px){
-      body{font-size:15px;line-height:1.7}
-      .container{padding:20px 16px}
-      .hero{
-        grid-template-columns:1fr;
-        gap:24px;
-        text-align:center;
-      }
-      .hero img{margin:auto;width:90%;}
-      .hero h1{font-size:42px;line-height:1.2;}
-      .grid.two,.grid.three{grid-template-columns:1fr;gap:20px;}
-      iframe{width:100%;height:auto;aspect-ratio:16/9;}
-      nav{flex-wrap:wrap;justify-content:center;}
-      nav a{padding:4px 8px;font-size:14px;}
-      .btn-group{display:grid;grid-template-columns:1fr;gap:10px;margin-top:16px;}
-      .btn{width:100%;margin:0 auto;}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(80% 70% at 50% 0%, #281413 0%, #0c0908 55%, #050505 100%) fixed;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      line-height:1.6;
+    }
+
+    body:before{
+      content:"";
+      position:fixed;
+      inset:0;
+      pointer-events:none;
+      opacity:.38;
+      mix-blend-mode:overlay;
+      background-image:
+        radial-gradient(rgba(255,255,255,.07) 1px, transparent 1px),
+        radial-gradient(rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size:3px 3px,5px 5px;
+      z-index:1;
+    }
+
+    body>*{position:relative;z-index:2}
+    a{color:inherit;text-decoration:none;border-bottom:1px solid var(--red)}
+    img{max-width:100%;display:block}
+
+    header{
+      position:sticky;
+      top:0;
+      z-index:20;
+      background:rgba(5,5,5,.78);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+
+    nav{
+      max-width:1180px;
+      margin:auto;
+      padding:12px 20px;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      text-transform:uppercase;
+      font-size:13px;
+      font-weight:900;
+      letter-spacing:.7px;
+    }
+
+    nav a{border:0}
+    .nav-tag{
+      margin-left:auto;
+      color:var(--gold);
+      font-size:12px;
+      letter-spacing:1.5px;
+    }
+
+    .hero{
+      min-height:92vh;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      padding:100px 20px 70px;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.82)),
+        linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.18), rgba(0,0,0,.82)),
+        url("hero.jpg") center center / cover no-repeat;
+      border-bottom:1px solid var(--line);
+    }
+
+    .hero-inner{max-width:980px}
+    .hero-logo{
+      width:540px;
+      max-width:88vw;
+      margin:0 auto 20px;
+      border:0;
+      filter:drop-shadow(0 12px 28px rgba(0,0,0,.75));
+    }
+
+    h1,h2,h3{
+      font-family:Staatliches,Impact,sans-serif;
+      font-weight:400;
+      line-height:1;
+      letter-spacing:1.5px;
+      margin:0;
+    }
+
+    h1{
+      font-size:clamp(58px,10vw,118px);
+      text-shadow:0 4px 0 #000;
+    }
+
+    .kicker{
+      color:var(--gold);
+      text-transform:uppercase;
+      font-weight:900;
+      letter-spacing:2.8px;
+      font-size:13px;
+      margin-bottom:10px;
+    }
+
+    .hero-line{
+      font-size:clamp(24px,3.5vw,42px);
+      font-weight:900;
+      line-height:1.12;
+      max-width:850px;
+      margin:18px auto 0;
+      text-shadow:0 4px 16px #000;
+    }
+
+    .hero-sub{
+      max-width:760px;
+      margin:16px auto 0;
+      color:#ded8cf;
+      font-size:18px;
+    }
+
+    .buttons{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:12px;
+      margin-top:30px;
+    }
+
+    .button{
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:999px;
+      padding:13px 18px;
+      min-height:48px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      background:var(--red);
+      color:#080807;
+      box-shadow:0 12px 30px rgba(196,75,89,.24);
+    }
+
+    .button.secondary{
+      background:rgba(255,255,255,.08);
+      color:var(--ink);
+      box-shadow:none;
+    }
+
+    .wrap{
+      max-width:1180px;
+      margin:auto;
+      padding:58px 20px;
+    }
+
+    .grid{display:grid;gap:20px}
+    .two{grid-template-columns:1.1fr .9fr}
+    .three{grid-template-columns:repeat(3,1fr)}
+
+    .card{
+      background:linear-gradient(180deg,var(--card2),var(--card));
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:26px;
+      box-shadow:0 18px 50px rgba(0,0,0,.28);
+    }
+
+    h2{
+      font-size:40px;
+      margin-bottom:12px;
+    }
+
+    .muted{color:var(--muted)}
+    .big-quote{
+      font-family:Staatliches,Impact,sans-serif;
+      font-size:clamp(34px,5vw,58px);
+      line-height:.98;
+    }
+    .big-quote span{color:var(--gold)}
+
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .chip{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.055);
+      border-radius:999px;
+      padding:8px 12px;
+      font-size:14px;
+      font-weight:900;
+    }
+
+    .chip.hot{
+      border-color:rgba(196,75,89,.65);
+      background:rgba(196,75,89,.14);
+    }
+
+    .section-title{
+      margin-bottom:20px;
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .section-title p{
+      margin:0;
+      color:var(--muted);
+      max-width:560px;
+    }
+
+    iframe{
+      width:100%;
+      aspect-ratio:16/9;
+      border:0;
+      border-radius:18px;
+    }
+
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+    }
+
+    .gallery img{
+      width:100%;
+      aspect-ratio:1/1;
+      object-fit:cover;
+      border-radius:16px;
+      border:1px solid var(--line);
+      cursor:pointer;
+      filter:contrast(1.04) saturate(.96);
+      transition:.2s ease;
+    }
+
+    .gallery img:hover{
+      transform:scale(1.015);
+      filter:contrast(1.1) saturate(1.1);
+    }
+
+    .wide-photo{
+      margin-top:20px;
+      border-radius:22px;
+      border:1px solid var(--line);
+      width:100%;
+      max-height:520px;
+      object-fit:cover;
+    }
+
+    .contact{
+      text-align:center;
+      padding:42px 26px;
+    }
+
+    footer{
+      text-align:center;
+      color:#8f8880;
+      border-top:1px solid var(--line);
+      padding:28px 20px;
+    }
+
+    .lightbox{
+      position:fixed;
+      inset:0;
+      z-index:50;
+      background:rgba(0,0,0,.93);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:20px;
+    }
+
+    .lightbox.show{display:flex}
+    .lightbox img{
+      max-width:92vw;
+      max-height:88vh;
+      border-radius:16px;
+    }
+
+    @media(max-width:900px){
+      header{position:relative}
+      nav{flex-wrap:wrap;justify-content:center}
+      .nav-tag{margin-left:0;width:100%;text-align:center}
+      .hero{min-height:82vh;padding:80px 18px 56px}
+      .hero-sub{font-size:16px}
+      .two,.three{grid-template-columns:1fr}
+      .gallery{grid-template-columns:1fr 1fr}
+      .buttons{display:grid;grid-template-columns:1fr}
+      .button{width:100%}
+      .section-title{display:block}
+      .wrap{padding:42px 16px}
     }
   </style>
 </head>
+
 <body>
   <header>
     <nav>
       <a href="#about">About</a>
       <a href="#media">Media</a>
-      <a href="#fans">For Fans Of</a>
-      <a href="#setlist">Setlist</a>
+      <a href="#shows">Shows</a>
+      <a href="#songs">Songs</a>
       <a href="#contact">Contact</a>
-      <span class="pill" style="margin-left:auto">Washington, DC · Emo Rock</span>
+      <span class="nav-tag">Washington, DC · Emo Rock</span>
     </nav>
   </header>
 
-  <main class="container">
-    <section class="hero">
-      <div class="grid">
-        <img src="logo.png" alt="Revolant logo" style="width:420px;max-width:100%;background:#000;padding:8px;border-radius:14px">
-        <div>
-          <div class="tag">Washington, DC · Emo Rock</div>
-          <h1>REVOLANT</h1>
-          <div class="btn-group">
-            <a class="btn" href="https://www.youtube.com/watch?v=FJRgIzjWKw8" target="_blank" rel="noopener">Watch the Highlight Reel</a>
-            <a class="btn" href="Revolant_EPK_OneSheet.pdf" download>Download One-Sheet (PDF)</a>
-            <a class="btn" href="band.jpg" download>Download Press Photo</a>
+  <section class="hero">
+    <div class="hero-inner">
+      <img class="hero-logo" src="logo.png" alt="Revolant logo">
+      <div class="kicker">DMV-based emo / rock cover band</div>
+      <h1>REVOLANT</h1>
+      <p class="hero-line">The soundtrack to your high school iPod, played loud.</p>
+      <p class="hero-sub">
+        High-energy pop-punk, emo, and post-hardcore favorites built for packed bars,
+        breweries, festivals, and rooms that still know every word.
+      </p>
+      <div class="buttons">
+        <a class="button" href="mailto:RevolantBand@gmail.com">Book Revolant</a>
+        <a class="button secondary" href="https://www.youtube.com/watch?v=FJRgIzjWKw8" target="_blank" rel="noopener">Watch Highlight Reel</a>
+        <a class="button secondary" href="tech-rider.pdf" target="_blank" rel="noopener">Download Tech Rider</a>
+        <a class="button secondary" href="https://instagram.com/RevolantBand" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <section id="about" class="wrap">
+      <div class="grid two">
+        <div class="card">
+          <h2>About</h2>
+          <p>
+            Revolant brings the soundtrack of the 2000s scene era back to life with loud guitars,
+            huge choruses, and the songs everyone still knows by heart.
+          </p>
+          <p>
+            From Fall Out Boy and Paramore to A Day to Remember and My Chemical Romance,
+            Revolant delivers high-energy sets designed to keep crowds engaged from the first
+            chord to the final singalong.
+          </p>
+          <p class="muted">
+            Based in the Washington, DC area, the band pairs nostalgic song selection with
+            professional production, streamlined load-ins, and an easy-to-work-with approach
+            for venues and bookers.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="big-quote">
+            The songs you forgot you knew <span>every word</span> to.
+          </div>
+          <div class="chips">
+            <span class="chip hot">Bars</span>
+            <span class="chip hot">Breweries</span>
+            <span class="chip hot">Festivals</span>
+            <span class="chip hot">Private Events</span>
+          </div>
+          <p class="muted" style="margin-top:20px">
+            Flexible set lengths available for 45-minute support slots, 60–90 minute headline sets,
+            and full two-hour bar sets.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="media" class="wrap">
+      <div class="section-title">
+        <h2>Media</h2>
+        <p>Live footage, professional photos, and the energy of a room full of people screaming along.</p>
+      </div>
+
+      <div class="grid two">
+        <div class="card">
+          <h2>Highlight Reel</h2>
+          <iframe src="https://www.youtube.com/embed/FJRgIzjWKw8" title="Revolant Highlight Reel" allowfullscreen></iframe>
+        </div>
+
+        <div class="gallery">
+          <img src="gallery1.jpg" alt="Revolant live photo 1" onclick="openLightbox(this.src)">
+          <img src="gallery2.jpg" alt="Revolant live photo 2" onclick="openLightbox(this.src)">
+          <img src="gallery3.jpg" alt="Revolant band photo 3" onclick="openLightbox(this.src)">
+          <img src="gallery4.jpg" alt="Revolant band photo 4" onclick="openLightbox(this.src)">
+          <img src="gallery5.jpg" alt="Revolant band photo 5" onclick="openLightbox(this.src)">
+          <img src="gallery6.jpg" alt="Revolant band photo 6" onclick="openLightbox(this.src)">
+        </div>
+      </div>
+    </section>
+
+    <section id="shows" class="wrap">
+      <div class="grid two">
+        <div class="card">
+          <h2>Recent Performances</h2>
+          <p class="muted">
+            Revolant has played stages across the DMV, bringing nostalgic emo and pop-punk favorites
+            to local rooms and live music crowds.
+          </p>
+          <div class="chips">
+            <span class="chip">Death Punch Bar</span>
+            <span class="chip">Dew Drop Inn DC</span>
+            <span class="chip">Jammin Java</span>
+            <span class="chip">Songbyrd</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Booking Fit</h2>
+          <p>
+            Revolant is a strong fit for venues looking for a nostalgic, high-energy rock night
+            built around recognizable songs and crowd participation.
+          </p>
+          <p class="muted">
+            Ideal for emo nights, rock cover bills, brewery shows, bar programs, festival slots,
+            and private events.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="songs" class="wrap">
+      <div class="section-title">
+        <h2>Songs & Artists</h2>
+        <p>Sets are built from familiar pop-punk, emo, and post-hardcore staples.</p>
+      </div>
+
+      <div class="grid two">
+        <div class="card">
+          <h2>For Fans Of</h2>
+          <div class="chips">
+            <span class="chip hot">Fall Out Boy</span>
+            <span class="chip hot">My Chemical Romance</span>
+            <span class="chip hot">Paramore</span>
+            <span class="chip hot">A Day to Remember</span>
+            <span class="chip hot">Pierce the Veil</span>
+            <span class="chip hot">Yellowcard</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Artists Covered</h2>
+          <div class="chips">
+            <span class="chip">Fall Out Boy</span>
+            <span class="chip">My Chemical Romance</span>
+            <span class="chip">Paramore</span>
+            <span class="chip">Yellowcard</span>
+            <span class="chip">The All-American Rejects</span>
+            <span class="chip">Mayday Parade</span>
+            <span class="chip">Pierce the Veil</span>
+            <span class="chip">A Day to Remember</span>
+            <span class="chip">Bring Me The Horizon</span>
+            <span class="chip">Taking Back Sunday</span>
+            <span class="chip">Blink-182</span>
+            <span class="chip">New Found Glory</span>
+            <span class="chip">Underoath</span>
+            <span class="chip">Hawthorne Heights</span>
+            <span class="chip">Saosin</span>
+            <span class="chip">Anberlin</span>
           </div>
         </div>
       </div>
-      <img src="band.jpg" alt="Revolant band photo">
     </section>
-<section id="about" class="section grid two">
-  <div class="card">
-    <h2>About / Bio</h2>
-    <p>Revolant is a DMV-based emo/rock cover band reviving all your favorite pop-punk anthems to hard rock moshers on the local stage. Bringing the energy with loud guitars and even louder choruses, they deliver the kind of setlist that punches nostalgia in the teeth and keeps the pit alive.</p>
-  </div>
-  <div class="card">
-    <h2>Booking</h2>
-    <p><strong>Location:</strong> Washington, DC<br/>
-    <strong>Email:</strong> <a href="mailto:RevolantBand@gmail.com">RevolantBand@gmail.com</a><br/>
-    <strong>Instagram:</strong> <a href="https://instagram.com/RevolantBand" target="_blank">@RevolantBand</a></p>
-  </div>
-</section>
 
-<section id="media" class="section">
-  <div class="card">
-    <h2>Video / Media</h2>
-    <div class="grid two">
-      <div>
-        <p><strong>Highlight Reel:</strong> <a href="https://www.youtube.com/watch?v=FJRgIzjWKw8" target="_blank">https://www.youtube.com/watch?v=FJRgIzjWKw8</a></p>
-        <div style="position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;border:1px solid #222">
-          <iframe src="https://www.youtube.com/embed/FJRgIzjWKw8" title="Revolant Highlight Reel" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;border:0"></iframe>
+    <section class="wrap">
+      <img class="wide-photo" src="van.jpg" alt="Revolant band in van">
+    </section>
+
+    <section id="contact" class="wrap">
+      <div class="card contact">
+        <h2>Book Revolant</h2>
+        <p>
+          <strong>Email:</strong>
+          <a href="mailto:RevolantBand@gmail.com">RevolantBand@gmail.com</a>
+        </p>
+        <p>
+          <strong>Instagram:</strong>
+          <a href="https://instagram.com/RevolantBand" target="_blank" rel="noopener">@RevolantBand</a>
+        </p>
+        <div class="buttons">
+          <a class="button" href="mailto:RevolantBand@gmail.com">Contact Booking</a>
+          <a class="button secondary" href="tech-rider.pdf" target="_blank" rel="noopener">Download Tech Rider</a>
         </div>
       </div>
-      <div class="grid three">
-        <img src="gallery1.jpg" alt="Revolant live photo 1" onclick="openLightbox(this.src)">
-        <img src="gallery2.jpg" alt="Revolant live photo 2" onclick="openLightbox(this.src)">
-        <img src="gallery3.jpg" alt="Revolant live photo 3" onclick="openLightbox(this.src)">
-        <img src="gallery4.jpg" alt="Revolant live photo 4" onclick="openLightbox(this.src)">
-        <img src="gallery5.jpg" alt="Revolant live photo 5" onclick="openLightbox(this.src)">
-        <img src="gallery6.jpg" alt="Revolant live photo 6" onclick="openLightbox(this.src)">
-      </div>
-    </div>
+    </section>
+  </main>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Gallery image">
   </div>
-</section>
 
-<section id="fans" class="section">
-  <div class="card">
-    <h2>For Fans Of</h2>
-    <p>Fall Out Boy · My Chemical Romance · A Day to Remember · Mayday Parade · Paramore</p>
-  </div>
-</section>
-<section id="setlist" class="section">
-  <div class="card">
-    <h2>Setlist / Artists Covered</h2>
-    <p>Sample picks for a 60–90 min set (rotating):</p>
-    <ul>
-      <li>Fall Out Boy — “Sugar, We’re Goin Down”</li>
-      <li>My Chemical Romance — “I’m Not Okay (I Promise)”</li>
-      <li>Paramore — “Misery Business”</li>
-      <li>A Day to Remember — “All Signs Point to Lauderdale”</li>
-      <li>Mayday Parade — “Jamie All Over”</li>
-      <li>Pierce the Veil — “King for a Day”</li>
-      <li>Yellowcard — “Ocean Avenue”</li>
-    </ul>
-    <p style="color:#9a9a9a">Want a specific vibe or theme? We tailor the setlist to your crowd.</p>
-  </div>
-</section>
+  <footer>
+    © Revolant — Washington, DC · Emo Rock
+  </footer>
 
-<section id="contact" class="section">
-  <div class="card">
-    <h2>Contact</h2>
-    <p><strong>Booking & Press:</strong> <a href="mailto:RevolantBand@gmail.com">RevolantBand@gmail.com</a></p>
-  </div>
-</section>
+  <script>
+    function openLightbox(src){
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('show');
+    }
 
-<div id="lightbox" class="lightbox" onclick="closeLightbox()">
-  <img id="lightbox-img" src="" alt="Gallery image">
-</div>
-
-<footer class="container">
-  <p>© Revolant — Washington, DC · Emo Rock</p>
-</footer>
-</main>
-
-<script>
-  function openLightbox(src){
-    const lb = document.getElementById('lightbox');
-    const img = document.getElementById('lightbox-img');
-    img.src = src;
-    lb.classList.add('show');
-  }
-  function closeLightbox(){
-    document.getElementById('lightbox').classList.remove('show');
-  }
-</script>
+    function closeLightbox(){
+      document.getElementById('lightbox').classList.remove('show');
+    }
+  </script>
 </body>
 </html>
-
