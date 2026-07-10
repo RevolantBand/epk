@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Revolant — EPK</title>
+  <meta
+  name="description"
+  content="Revolant is a Washington, DC-area emo and pop-punk cover band performing high-energy favorites from Fall Out Boy, My Chemical Romance, Paramore, Yellowcard, and more."
+>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -81,17 +85,23 @@
     }
 
     .hero{
-      min-height:92vh;
-      display:grid;
-      place-items:center;
-      text-align:center;
-      padding:100px 20px 70px;
-      background:
-        linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.62)),
-        linear-gradient(90deg, rgba(0,0,0,.58), rgba(0,0,0,.12), rgba(0,0,0,.58)),
-        url("hero.jpg") center 42% / cover no-repeat; 
-      border-bottom:1px solid var(--line);
-    }
+  min-height:92vh;
+  display:grid;
+  place-items:center;
+  text-align:center;
+  padding:100px 20px 70px;
+
+  background-color:#050505;
+  background-image:
+    linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.68)),
+    linear-gradient(90deg, rgba(0,0,0,.82), rgba(0,0,0,.16), rgba(0,0,0,.82)),
+    url("hero.jpg");
+
+  background-position:center, center, center 34%;
+  background-size:cover, cover, auto 115%;
+  background-repeat:no-repeat;
+  border-bottom:1px solid var(--line);
+  }
 
     .hero-inner{max-width:980px}
     .hero-logo{
@@ -367,7 +377,7 @@
           </p>
           <p class="muted">
             Based in the Washington, DC area, the band pairs nostalgic song selection with
-            professional production, and seeks to bring an easy-to-work-with approach to venues and bookers.
+            professional production, and an organized, easy-to-work-with approach for venues and bookers.
           </p>
         </div>
 
@@ -432,7 +442,7 @@
         <div class="card">
           <h2>Booking Fit</h2>
           <p>
-            Revolant is a strong fit for venues looking for a nostalgic, high-energy covers night
+            Revolant is a strong fit for venues looking for a nostalgic, high-energy live music night
             built around recognizable songs and crowd favorites.
           </p>
           <p class="muted">
